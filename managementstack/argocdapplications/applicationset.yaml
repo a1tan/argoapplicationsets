@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: gitopsdemo
+  namespace: argocd
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/a1tan/gitopsdemo.git
+      revision: HEAD
+      directories:
+      - path: managementstack/*
+  template:
+    metadata:
+      name: '{{path.basename}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/a1tan/gitopsdemo.git
+        targetRevision: HEAD
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{path.basename}}'
+      syncPolicy:
+          automated:
+              allowEmpty: true
+              prune: true
+              selfHeal: true
