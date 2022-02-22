@@ -16920,7 +16920,7 @@ metadata:
   name: argocd-application-controller
   namespace: argocd
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app.kubernetes.io/name: argocd-application-controller
