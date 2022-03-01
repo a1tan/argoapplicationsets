@@ -6,7 +6,7 @@ metadata:
 spec:
   generators:
   - git:
-      repoURL: https://github.com/a1tan/gitopsdemo.git
+      repoURL: https://github.com/a1tan/argoapplicationsets.git
       revision: HEAD
       directories:
       - path: managementstack/*
@@ -16,7 +16,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/a1tan/gitopsdemo.git
+        repoURL: https://github.com/a1tan/argoapplicationsets.git
         targetRevision: HEAD
         path: '{{path}}'
       destination:
